@@ -3,7 +3,9 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const Axios = require("axios");
 
+//id do pepe 291901772669124609
 
+//Ao inicializar
 client.on("ready", () => {
     console.log(`Bot foi iniciado, com ${client.users.size} usuários, em ${client.channels.size} canais, em ${client.guilds.size} servidores.`);
     client.user.setPresence({ game: { name: 'comando', type: 1, url: 'https://www.twitch.tv/pedroricardo' } });
@@ -13,6 +15,9 @@ client.on("ready", () => {
     //  3 = Assistindo
 });
 
+client.on("raw", console.log())
+
+//Chamadas de comando pelo chat do discord
 client.on("message", async message => {
 
     if (message.author.bot) return;
