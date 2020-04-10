@@ -1,0 +1,1 @@
+// https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%2704-08-2020%27&$top=100&$format=json&$select=cotacaoCompra

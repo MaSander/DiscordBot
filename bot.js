@@ -1,6 +1,7 @@
 const Discord = require("discord.js"); //baixar a lib
 const client = new Discord.Client();
 const config = require("./config.json");
+const Axios = require("axios");
 
 
 client.on("ready", () => {
@@ -23,13 +24,28 @@ client.on("message", async message => {
 
     // coamdno ping
     if (comando === "ping") {
-        while (true) {
-            const m = await message.channel.send("Ping?");
-            m.edit(`Pepe viado`);
-        }
-        // while(true){
-        // m.edit(`Pong! A Latência é ${m.createdTimestamp - message.createdTimestamp}ms. A Latencia da API é ${Math.round(client.ping)}ms`);
-        // }
+        const m = await message.channel.send("Ping?");
+        m.edit(`${m.createdTimestamp - message.createdTimestamp}ms. | Api: ${Math.round(client.ping)}ms.`);
+    }
+
+    // Comando de cotação euro e dolar
+    if (comando === "price") {
+        const urlPrice = `https://economia.awesomeapi.com.br/all/USD-BRL,EUR-BRL`
+
+        let resReturn = []
+
+        Axios.get(urlPrice)
+            .then(function (res) {
+                resReturn[0] = `Dolar: ${res.data.USD.high}`
+                resReturn[1] = `Euro: ${res.data.EUR.high}`
+            }
+            )
+            .catch(function (error) {
+                resReturn[0] = 'deu merda'
+            })
+        const m = await message.channel.send("Real?");
+        m.edit(`${resReturn}`);
+
     }
 
 });
