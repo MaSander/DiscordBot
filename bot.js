@@ -3,8 +3,6 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const Axios = require("axios");
 
-//id do pepe 291901772669124609
-
 //Ao inicializar
 client.on("ready", () => {
     console.log(`Bot foi iniciado, com ${client.users.size} usuários, em ${client.channels.size} canais, em ${client.guilds.size} servidores.`);
@@ -15,7 +13,16 @@ client.on("ready", () => {
     //  3 = Assistindo
 });
 
-client.on("raw", console.log())
+// client.on("raw", data => {
+//     // console.log(data.d.author)
+//     if (data.t == "MESSAGE_CREATE") {
+//         if (data.d.author.avatar == "63e8e6e9f757639ce749e35cc80aaccf") {
+//             client.on("message", message => {
+//                 return message.channel.send("au au");
+//             })
+//         }
+//     }
+// });
 
 //Chamadas de comando pelo chat do discord
 client.on("message", async message => {
@@ -53,6 +60,16 @@ client.on("message", async message => {
 
     }
 
+});
+
+// Create an event listener for new guild members
+client.on('guildMemberAdd', member => {
+    // Send the message to a designated channel on a server:
+    const channel = member.guild.channels.cache.find(ch => ch.name === 'geral');
+    // Do nothing if the channel wasn't found on this server
+    if (!channel) return;
+    // Send the message, mentioning the member
+    channel.send(`Welcome to the server, ${member}`);
 });
 
 client.login(config.token);
