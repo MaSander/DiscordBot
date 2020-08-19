@@ -2,10 +2,11 @@
 
 Site para gerar link de adicionar o bot ao servidor: https://discordapi.com/permissions.html
 
- * Apis  utilizadas:
-Api utilizada para cotação de dolar e euro: https://docs.awesomeapi.com.br/api-de-moedas
+# Apis  utilizadas:
+ 
+ - Api utilizada para cotação de dolar e euro: https://docs.awesomeapi.com.br/api-de-moedas
 
- * How to run?
+# How to run?
 
  - Adicionar arquivo config.json
 
