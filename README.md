@@ -12,7 +12,7 @@ Site para gerar link de adicionar o bot ao servidor: https://discordapi.com/perm
 
  - Configurar o config.json:
  {
-     "prefix": "CARACER PARA CHAMAR O BOT",
+     "prefix": "CARÁCTER PARA CHAMAR O BOT",
      "token": "TOKEN DO BOT"
  }
 
